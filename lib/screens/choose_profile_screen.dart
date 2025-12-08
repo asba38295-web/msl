@@ -50,7 +50,7 @@ class ChooseProfileScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Hey Ali,",
+                      "Hey Name,",
                       style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
