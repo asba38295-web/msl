@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+// ====== DYNAMIC IMPORTS ======
+import 'send_screen.dart' deferred as sendScreen;
+import 'depart_city_screen.dart' deferred as departScreen;
+
 class ChooseProfileScreen extends StatelessWidget {
   const ChooseProfileScreen({super.key});
 
@@ -64,9 +68,8 @@ class ChooseProfileScreen extends StatelessWidget {
                   ],
                 ),
 
-                // avatar image (replace with your image)
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
+                  borderRadius: BorderRadius.circular(14),
                   child: Container(
                     width: 65,
                     height: 65,
@@ -78,7 +81,6 @@ class ChooseProfileScreen extends StatelessWidget {
 
             const SizedBox(height: 100),
 
-            // ========= Title =========
             const Text(
               "YOU ARE ?",
               style: TextStyle(
@@ -104,7 +106,15 @@ class ChooseProfileScreen extends StatelessWidget {
             _bigButton(
               icon: Icons.local_shipping_outlined,
               text: "Sender",
-              onTap: () {},
+              onTap: () async {
+                await sendScreen.loadLibrary();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => sendScreen.SendTypeScreen(),
+                  ),
+                );
+              },
             ),
 
             const SizedBox(height: 25),
@@ -113,7 +123,15 @@ class ChooseProfileScreen extends StatelessWidget {
             _bigButton(
               icon: Icons.directions_car_outlined,
               text: "Transporter",
-              onTap: () {},
+              onTap: () async {
+                await departScreen.loadLibrary();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => departScreen.DepartCityScreen(),
+                  ),
+                );
+              },
             ),
           ],
         ),
